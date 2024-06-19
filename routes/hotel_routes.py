@@ -120,3 +120,22 @@ def hotel_routes(app, db):
         except Exception as e:
             logging.error(f"Error updating hotel: {e}")
             return jsonify({"message": f"An error occurred: {e}"}), 500
+        
+    @app.route('/hotel/guests/<int:hotel_id>', methods=['GET'])
+    def hotel_guests(hotel_id):
+        try:
+            hotel = Hotel.query.filter_by(id=hotel_id).first()
+            guest_list = []
+            for guest in hotel.guests:
+                guest_dict = {
+                    "id": guest.id,
+                    "fisrtName": guest.firstName,
+                    "secondName": guest.secondName,
+                    "email": guest.email,
+                    "mobile": guest.mobile
+                }
+                guest_list.append(guest_dict)   
+            return jsonify(guest_list), 200
+        except Exception as e:
+            logging.error(f"Error getting guests: {e}")
+            return jsonify({"message": f"An error occurred: {e}"}), 500
