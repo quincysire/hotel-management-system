@@ -4,7 +4,7 @@ import os
 from datetime import timedelta
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///data_base.db'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://hotels_90q7_user:A6RSArvCUh4OXcKWUGQJeZRyWJDvC8jz@dpg-cpreeq5umphs73c43jl0-a.oregon-postgres.render.com/hotels_90q7'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = True
     # SECRET_KEY = os.environ['SECRET_KEY']
@@ -20,7 +20,7 @@ class Config:
     # Email config
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 465
-    MAIL_USERNAME = 'Derexfinesse@gmail.com'
-    MAIL_PASSWORD = "gggx zsjv rbsx reqi"
+    MAIL_USERNAME = ''
+    MAIL_PASSWORD = ""
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
